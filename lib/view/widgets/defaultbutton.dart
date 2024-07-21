@@ -31,6 +31,7 @@ class DefaultButton extends StatelessWidget {
           label,
           style: const TextStyle(
               color: Colors.white,
+              fontWeight: FontWeight.bold,
               fontSize: 15
           ),
           textAlign: TextAlign.center,

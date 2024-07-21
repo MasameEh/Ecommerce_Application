@@ -9,7 +9,7 @@ List<OnBoardingModel> onBoardingList = [
       image: AppImageAsset.onBoardingImageOne
   ),
   OnBoardingModel(
-      title: "Easy And Safe Paymnet",
+      title: "Easy And Safe Payment",
       body:
       "We Have a 100k Product , Choose \n Your Product From Our E-commerce Shop",
       image: AppImageAsset.onBoardingImageTwo
