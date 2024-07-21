@@ -1,13 +1,12 @@
 import 'package:ecommerce_app/view/widgets/defaultbutton.dart';
 import 'package:ecommerce_app/view/widgets/logo_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../core/constant/colors.dart';
 import '../../widgets/defaultextformfield.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Signup extends StatelessWidget {
+  const Signup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class Login extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundColor,
         elevation: 0.0,
-        title: Text('Sign In',
+        title: Text('Sign Up',
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge!
@@ -103,13 +102,13 @@ class Login extends StatelessWidget {
               const Text('Don\'t have an account ?'),
               TextButton(
                   onPressed: () {
-                    Get.toNamed('/signup');
+
                   },
-                  child: const Text('Sign up',
+                  child: const Text('Register',
                       style: TextStyle(
                         color: AppColor.primaryColor,
                         fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                       )
                   )
               ),

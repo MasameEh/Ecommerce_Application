@@ -29,7 +29,9 @@ class OnBoarding extends StatelessWidget {
                     const SizedBox(height: 10,),
                     Text(onBoardingList[index].title!,
                       style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.black
                       ),
                     ),
                     const SizedBox(height: 80,),

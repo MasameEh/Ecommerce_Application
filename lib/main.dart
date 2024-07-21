@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/localization/translation.dart';
 import 'package:ecommerce_app/view/screens/onboarding.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/colors.dart';
@@ -9,7 +10,7 @@ import 'core/localization/changelocal.dart';
 import 'routes.dart';
 import 'view/screens/language.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await initialServices();
@@ -28,24 +29,40 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       locale: controller.lang,
       theme: ThemeData(
-        fontFamily: "PlayFairDisplay",
-        textTheme: const TextTheme(
-          headlineLarge:  TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.black
+          scaffoldBackgroundColor: Colors.white,
+          checkboxTheme: const CheckboxThemeData(
+              side: BorderSide(
+            color: AppColor.grey,
+          )),
+          appBarTheme: const AppBarTheme().copyWith(
+              backgroundColor: Colors.white,
+              iconTheme: const IconThemeData(color: Colors.black),
+              elevation: 0.0,
+              systemOverlayStyle: const SystemUiOverlayStyle(
+                statusBarColor: Colors.transparent,
+                statusBarIconBrightness: Brightness.dark,
+              )
           ),
-          bodyLarge: TextStyle(
-              height: 2,
-              color: AppColor.grey,
-              fontWeight: FontWeight.bold,
-              fontSize: 17
-          ),
-        )
-      ),
+          unselectedWidgetColor: AppColor.grey,
+          colorScheme: ThemeData().colorScheme.copyWith(
+                primary: AppColor.primaryColor,
+              ),
+          fontFamily: "PlayFairDisplay",
+          textTheme: const TextTheme(
+            headlineLarge: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black),
+            headlineMedium: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 26, color: Colors.black),
+            bodyLarge: TextStyle(
+                height: 2,
+                color: AppColor.grey,
+                fontWeight: FontWeight.bold,
+                fontSize: 14),
+            bodyMedium:
+                TextStyle(height: 2, color: AppColor.grey, fontSize: 14),
+          )),
       home: const Language(),
       routes: routes,
     );
   }
 }
-
