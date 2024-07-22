@@ -68,7 +68,7 @@ class DefaultTextFormField extends StatelessWidget {
                 onPressed: suffixPressed,
                 icon: Icon(
                   suffix,
-                  // color: Colors.black54,
+                  color: AppColor.grey,
                   size: 20,
                 ),
               )

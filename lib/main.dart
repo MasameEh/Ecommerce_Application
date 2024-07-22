@@ -9,6 +9,7 @@ import 'core/services/services.dart';
 import 'core/localization/changelocal.dart';
 import 'routes.dart';
 import 'view/screens/language.dart';
+import 'view/size_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     LocaleController controller = Get.put(LocaleController());
+    SizeConfig().init(context);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       translations: MyTranslation(),
@@ -50,14 +52,27 @@ class MyApp extends StatelessWidget {
           fontFamily: "PlayFairDisplay",
           textTheme: const TextTheme(
             headlineLarge: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black),
+                fontWeight:
+                FontWeight.bold,
+                fontSize: 22,
+                color: Colors.black
+            ),
             headlineMedium: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 26, color: Colors.black),
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.black
+            ),
+            headlineSmall: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+                color: AppColor.primaryColor
+            ),
             bodyLarge: TextStyle(
                 height: 2,
                 color: AppColor.grey,
                 fontWeight: FontWeight.bold,
-                fontSize: 14),
+                fontSize: 14
+            ),
             bodyMedium:
                 TextStyle(height: 2, color: AppColor.grey, fontSize: 14),
           )),

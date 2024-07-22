@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/controller/auth/login_controller.dart';
 import 'package:ecommerce_app/view/widgets/defaultbutton.dart';
 import 'package:ecommerce_app/view/widgets/logo_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -42,20 +44,25 @@ class Login extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          const DefaultTextFormField(
+           DefaultTextFormField(
             label: 'Email',
+            controller: controller.emailController,
             hint: 'Enter your email',
             type: TextInputType.emailAddress,
             suffix: Icons.email_outlined,
           ),
           const SizedBox(height: 20),
-          const DefaultTextFormField(
-            label: 'Password',
-            hint: 'Enter your password',
-            type: TextInputType.text,
-            suffix: Icons.visibility_outlined,
+          GetBuilder<LoginControllerImp>(
+            builder: (controller) => DefaultTextFormField(
+              label: 'Password',
+              controller: controller.passController,
+              hint: 'Enter your password',
+              isPassword: controller.isPass,
+              type: TextInputType.text,
+              suffix: controller.suffix,
+              suffixPressed: controller.changePasswordVisibility,
+            ),
           ),
-          const SizedBox(height: 5),
           Row(
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -82,7 +89,9 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.gotoForgotPass();
+                        },
                         child: Text('Forgot password?',
                           style: Theme.of(context).textTheme.bodyMedium,
                           //textAlign: TextAlign.end,
@@ -94,16 +103,14 @@ class Login extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 15),
-          DefaultButton(label: 'Sign In', onTap: () {
-
-          },),
+          DefaultButton(label: 'Sign In', onTap: () {},),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text('Don\'t have an account ?'),
               TextButton(
                   onPressed: () {
-                    Get.toNamed('/signup');
+                    controller.gotoSignUp();
                   },
                   child: const Text('Sign up',
                       style: TextStyle(

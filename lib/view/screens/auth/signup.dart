@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/view/widgets/defaultbutton.dart';
 import 'package:ecommerce_app/view/widgets/logo_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../controller/auth/signup_controller.dart';
 import '../../../core/constant/colors.dart';
 import '../../widgets/defaultextformfield.dart';
 
@@ -10,6 +12,7 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SignupControllerImp controller = Get.put(SignupControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -24,7 +27,6 @@ class Signup extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(children: [
-          const LogoAuth(),
           const SizedBox(height: 20),
           Text(
             "Welcome Back",
@@ -35,24 +37,46 @@ class Signup extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 25),
             child: Text(
-              "Sign in with your email and password or continue with social media",
+              "Sign up with your email and password or continue with social media",
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           const SizedBox(height: 30),
-          const DefaultTextFormField(
+          DefaultTextFormField(
+            label: 'Username',
+            controller: controller.usernameController,
+            hint: 'Enter your username',
+            type: TextInputType.text,
+            suffix: Icons.person_outline,
+          ),
+          const SizedBox(height: 20),
+          DefaultTextFormField(
             label: 'Email',
+            controller: controller.emailController,
             hint: 'Enter your email',
             type: TextInputType.emailAddress,
             suffix: Icons.email_outlined,
           ),
           const SizedBox(height: 20),
-          const DefaultTextFormField(
-            label: 'Password',
-            hint: 'Enter your password',
-            type: TextInputType.text,
-            suffix: Icons.visibility_outlined,
+          DefaultTextFormField(
+            label: 'Phone',
+            controller: controller.phoneController,
+            hint: 'Enter your phone number',
+            type: TextInputType.phone,
+            suffix: Icons.phone_outlined,
+          ),
+          const SizedBox(height: 20),
+          GetBuilder<SignupControllerImp>(
+            builder: (controller) => DefaultTextFormField(
+              label: 'Password',
+              controller: controller.passController,
+              hint: 'Enter your password',
+              isPassword: controller.isPass,
+              type: TextInputType.text,
+              suffix: controller.suffix,
+              suffixPressed: controller.changePasswordVisibility,
+            ),
           ),
           const SizedBox(height: 5),
           Row(
@@ -76,44 +100,12 @@ class Signup extends StatelessWidget {
               Text('Remember me',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                        onPressed: () {},
-                        child: Text('Forgot password?',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          //textAlign: TextAlign.end,
-                        )
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
           const SizedBox(height: 15),
           DefaultButton(label: 'Sign In', onTap: () {
-
+            controller.signup();
           },),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Don\'t have an account ?'),
-              TextButton(
-                  onPressed: () {
-
-                  },
-                  child: const Text('Register',
-                      style: TextStyle(
-                        color: AppColor.primaryColor,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      )
-                  )
-              ),
-            ],
-          ),
         ]),
       ),
     );

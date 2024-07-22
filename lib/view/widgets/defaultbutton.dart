@@ -21,7 +21,7 @@ class DefaultButton extends StatelessWidget {
       child: Container(
         margin: margin,
         alignment: Alignment.center,
-        height: 50,
+        height: 45,
         width: width,
         decoration: BoxDecoration(
           color: AppColor.primaryColor,

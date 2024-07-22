@@ -5,6 +5,8 @@ import 'package:ecommerce_app/view/widgets/defaultbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../size_config.dart';
+
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
 
@@ -35,7 +37,7 @@ class OnBoarding extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 80,),
-                    Image.asset(onBoardingList[index].image!, width: 200, height: 250, fit: BoxFit.fill,),
+                    Image.asset(onBoardingList[index].image!, width: SizeConfig.screenWidth *0.5, height: SizeConfig.screenHeight *0.25, fit: BoxFit.fill,),
                     const SizedBox(height: 70,),
                     Container(
                       width: double.infinity,
