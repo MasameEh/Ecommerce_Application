@@ -20,7 +20,7 @@ class ForgotPass extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundColor,
         elevation: 0.0,
-        title: Text('Forgot Password',
+        title: Text('26'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge!
@@ -38,7 +38,7 @@ class ForgotPass extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            "Mail Address Here",
+            "27".tr,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
@@ -46,22 +46,22 @@ class ForgotPass extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
-              "Enter your email to receive a verification code to reset your password",
+              "44".tr,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           const SizedBox(height: 30),
           DefaultTextFormField(
-            label: 'Email',
+            label: '19'.tr,
             controller: controller.emailController,
-            hint: 'Enter your email',
+            hint: '13'.tr,
             type: TextInputType.emailAddress,
             suffix: Icons.email_outlined,
           ),
           const SizedBox(height: 30),
           DefaultButton(
-            label: 'Check',
+            label: '31'.tr,
             onTap: () {
               controller.gotoVerifyCode();
             },

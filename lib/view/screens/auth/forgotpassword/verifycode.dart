@@ -1,14 +1,10 @@
-import 'package:ecommerce_app/view/size_config.dart';
-import 'package:ecommerce_app/view/widgets/defaultbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/auth/forgotpass_controller.dart';
 import '../../../../controller/auth/verifycode_controller.dart';
 import '../../../../core/constant/colors.dart';
-import '../../../../core/constant/image_asset.dart';
-import '../../../widgets/defaultextformfield.dart';
+
 
 class VerifyCode extends StatelessWidget {
   const VerifyCode({super.key});
@@ -21,7 +17,7 @@ class VerifyCode extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundColor,
         elevation: 0.0,
-        title: Text('Verification',
+        title: Text('45'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge!
@@ -32,7 +28,7 @@ class VerifyCode extends StatelessWidget {
           child: ListView(children: [
             const SizedBox(height: 20),
             Text(
-              "Check your email",
+              "46".tr,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
@@ -40,7 +36,7 @@ class VerifyCode extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
-                "enter 5 digit code that mentioned in the email",
+                "47".tr,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),

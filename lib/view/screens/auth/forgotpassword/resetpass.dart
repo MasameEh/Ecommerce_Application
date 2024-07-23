@@ -18,7 +18,7 @@ class ResetPass extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundColor,
         elevation: 0.0,
-        title: Text('Reset Password',
+        title: Text('48'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge!
@@ -33,7 +33,7 @@ class ResetPass extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
-                "Enter your new password",
+                "35".tr,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
@@ -41,9 +41,9 @@ class ResetPass extends StatelessWidget {
             const SizedBox(height: 30),
             GetBuilder<ResetPassControllerImp>(
               builder: (controller) => DefaultTextFormField(
-                label: 'New Password',
+                label: '36'.tr,
                 controller: controller.passController,
-                hint: 'Enter your password',
+                hint: '14'.tr,
                 isPassword: controller.isPass,
                 type: TextInputType.text,
                 suffix: controller.suffix,
@@ -53,9 +53,9 @@ class ResetPass extends StatelessWidget {
             const SizedBox(height: 20),
             GetBuilder<ResetPassControllerImp>(
               builder: (controller) => DefaultTextFormField(
-                label: 'Confirm Password',
+                label: '49'.tr,
                 controller: controller.passConfirmController,
-                hint: 'Re enter your password',
+                hint: '50'.tr,
                 isPassword: controller.isPassConfirm,
                 type: TextInputType.text,
                 suffix: controller.suffixConfirm,
@@ -64,7 +64,7 @@ class ResetPass extends StatelessWidget {
             ),
             const SizedBox(height: 30),
                 DefaultButton(
-                  label: 'Update Passwords',
+                  label: '51'.tr,
                   onTap: () {
                     controller.gotoSuccess();
                   },

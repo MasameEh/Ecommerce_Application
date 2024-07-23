@@ -11,6 +11,7 @@ class LoginControllerImp extends LoginController{
 
   late TextEditingController emailController;
   late TextEditingController passController;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool isPass = true;
   bool isChecked = false;
@@ -36,6 +37,11 @@ class LoginControllerImp extends LoginController{
   @override
   void login() {
     // TODO: implement login
+    if(formKey.currentState!.validate()){
+      print('good');
+    }else {
+      print('A7a 3leek');
+    }
 
   }
   @override
@@ -55,6 +61,7 @@ class LoginControllerImp extends LoginController{
     // TODO: implement dispose
     emailController.dispose();
     passController.dispose();
+
     super.dispose();
   }
 

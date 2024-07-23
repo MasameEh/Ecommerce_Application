@@ -80,7 +80,7 @@ class OnBoarding extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 60,),
                     child: DefaultButton(
-                      label: 'Continue',
+                      label: '9'.tr,
                       margin: const EdgeInsets.only(top: 90),
                       onTap: () {
                             controller.next();

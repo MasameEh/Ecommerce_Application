@@ -17,7 +17,7 @@ class SuccessReset extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundColor,
         elevation: 0.0,
-        title: Text('Success',
+        title: Text('33'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge!
@@ -32,15 +32,15 @@ class SuccessReset extends StatelessWidget {
                 size: 200,
                 color: AppColor.primaryColor,
               )),
-          Text("congratulations",
+          Text("38".tr,
               style: Theme.of(context)
                   .textTheme
                   .headlineLarge!
                   .copyWith(fontSize: 30, color: AppColor.primaryColor)),
-          Text("Password has been reset successfully".tr),
+          Text("37".tr),
           SizedBox(height: SizeConfig.screenHeight * 0.05),
           DefaultButton(
-              label: 'Done',
+              label: '32'.tr,
               onTap: () {
                 Get.offNamed('/login');
               },

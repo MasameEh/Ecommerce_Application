@@ -10,6 +10,7 @@ class Language extends GetView<LocaleController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
           padding: const EdgeInsets.only(right: 80, left: 80),
           child: Column(
@@ -18,13 +19,13 @@ class Language extends GetView<LocaleController> {
               Text("3".tr , style:  Theme.of(context).textTheme.headlineLarge) ,
               const SizedBox(height: 20) ,
               DefaultButton(label: "1".tr, onTap: () {
+                Get.offNamed('/onboarding');
                 controller.changeLang("ar");
-                Get.toNamed('/onboarding');
               }),
               const SizedBox(height: 20) ,
               DefaultButton(label: "2".tr, onTap: () {
+                Get.offNamed('/onboarding');
                 controller.changeLang("en");
-                Get.toNamed('/onboarding');
               }),
             ],
           )),

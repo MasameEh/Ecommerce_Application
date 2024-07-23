@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 abstract class SignupController extends GetxController{
   void signup();
   void changePasswordVisibility();
-  void gotoCheckEmail();
+  void gotoVerifyCodeSignUp();
 }
 class SignupControllerImp extends SignupController{
 
@@ -12,6 +12,8 @@ class SignupControllerImp extends SignupController{
   late TextEditingController passController;
   late TextEditingController phoneController;
   late TextEditingController usernameController;
+
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool isPass = true;
   bool isChecked = false;
@@ -38,13 +40,18 @@ class SignupControllerImp extends SignupController{
   @override
   void signup() {
     // TODO: implement signup
-    gotoCheckEmail();
-
+    if(formKey.currentState!.validate()){
+      print('good');
+      gotoVerifyCodeSignUp();
+      Get.delete<SignupControllerImp>();
+    }else {
+      print('A7a 3leek');
+    }
   }
 
   @override
-  gotoCheckEmail(){
-    Get.offNamed('/checkemail');
+  gotoVerifyCodeSignUp(){
+    Get.offAllNamed('/verifycodesignup');
   }
 
   @override
