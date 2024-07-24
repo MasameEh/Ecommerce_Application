@@ -43,7 +43,6 @@ class SignupControllerImp extends SignupController{
     if(formKey.currentState!.validate()){
       print('good');
       gotoVerifyCodeSignUp();
-      Get.delete<SignupControllerImp>();
     }else {
       print('A7a 3leek');
     }
