@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'bindings/initial_bindings.dart';
 import 'core/constant/colors.dart';
 import 'core/services/services.dart';
 import 'core/localization/changelocal.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       locale: controller.lang,
       theme: controller.appTheme,
+      initialBinding: InitialBindings(),
       getPages: getRoutes,
     );
   }
