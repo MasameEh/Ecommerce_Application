@@ -5,29 +5,19 @@ import 'package:lottie/lottie.dart';
 import '../constant/image_asset.dart';
 
 class HandlingDataView extends StatelessWidget {
-  final StatusRequest statusRequest;
+  final StatusRequest? statusRequest;
   final Widget widget;
   const HandlingDataView(
-      {Key? key, required this.statusRequest, required this.widget})
-      : super(key: key);
+      {super.key, required this.statusRequest, required this.widget});
 
   @override
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
-        ? Center(
-        child: Lottie.asset(AppImageAsset.loading, width: 250, height: 250))
+        ? const Center(
+            child: CircularProgressIndicator(),)
         : statusRequest == StatusRequest.offlineFailure
-        ? Center(
-        child: Lottie.asset(AppImageAsset.offline,
-            width: 250, height: 250))
-        : statusRequest == StatusRequest.serverFailure
-        ? Center(
-        child: Lottie.asset(AppImageAsset.server,
-            width: 250, height: 250))
-        : statusRequest == StatusRequest.failure
-        ? Center(
-        child: Lottie.asset(AppImageAsset.noData,
-            width: 250, height: 250, repeat: true))
-        : widget;
+            ? Center(
+                child: Lottie.asset(AppImageAsset.offline,
+                    width: 250, height: 250)) : widget;
   }
 }

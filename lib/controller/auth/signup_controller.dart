@@ -17,7 +17,7 @@ class SignupControllerImp extends SignupController{
   late TextEditingController phoneController;
   late TextEditingController usernameController;
 
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -47,21 +47,24 @@ class SignupControllerImp extends SignupController{
   }
 
   @override
-  void signup() {
+  void signup() async{
     // TODO: implement signup
     if(formKey.currentState!.validate()){
       statusRequest = StatusRequest.loading;
-      var response = signupData.postData(
+      var response = await signupData.postData(
           username: usernameController.text,
           email: emailController.text,
           pass: passController.text,
           phone: phoneController.text,
       );
+      print("RESPONSE request is $response") ;
       statusRequest = handlingData(response);
-
+      print("status request is $statusRequest") ;
       if(statusRequest == StatusRequest.success){
-        if(response['status'] == 'success'){
-          data.addAll(response['data']);
+        print("status request is $statusRequest");
+        if(response["status"] == "success"){
+          print("status request is $statusRequest");
+          //data.addAll(response['data']);
           gotoVerifyCodeSignUp();
         }
         else{
