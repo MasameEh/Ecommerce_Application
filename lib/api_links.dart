@@ -4,5 +4,6 @@ class AppLinks{
 
 
    static const String signup = "$server/auth/signup.php";
+   static const String login = "$server/auth/login.php";
 
 }

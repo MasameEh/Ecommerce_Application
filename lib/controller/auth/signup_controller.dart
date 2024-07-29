@@ -51,19 +51,17 @@ class SignupControllerImp extends SignupController{
     // TODO: implement signup
     if(formKey.currentState!.validate()){
       statusRequest = StatusRequest.loading;
+      update();
       var response = await signupData.postData(
           username: usernameController.text,
           email: emailController.text,
           pass: passController.text,
           phone: phoneController.text,
       );
-      print("RESPONSE request is $response") ;
       statusRequest = handlingData(response);
       print("status request is $statusRequest") ;
       if(statusRequest == StatusRequest.success){
-        print("status request is $statusRequest");
         if(response["status"] == "success"){
-          print("status request is $statusRequest");
           //data.addAll(response['data']);
           gotoVerifyCodeSignUp();
         }

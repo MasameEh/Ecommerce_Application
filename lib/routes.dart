@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/view/screens/auth/forgotpassword/forgotpass.dart';
+import 'package:ecommerce_app/view/screens/auth/home.dart';
 import 'package:ecommerce_app/view/screens/auth/login.dart';
 import 'package:ecommerce_app/view/screens/auth/forgotpassword/resetpass.dart';
 import 'package:ecommerce_app/view/screens/auth/signup.dart';
@@ -40,4 +41,5 @@ List<GetPage<dynamic>>? getRoutes = [
   GetPage(name: '/successreset',    page: () => const SuccessReset(),),
   GetPage(name: '/success_signup',  page: () => const SuccessSignup(),),
   GetPage(name: '/verifycodesignup',page: () => const VerifyCodeSignUp(),),
+  GetPage(name: '/home',            page: () => const HomePage(),),
 ];
