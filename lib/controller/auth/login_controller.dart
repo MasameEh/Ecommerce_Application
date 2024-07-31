@@ -67,7 +67,6 @@ class LoginControllerImp extends LoginController{
     }else {
       print('A7a 3leek');
     }
-
   }
   @override
   void gotoSignUp() {

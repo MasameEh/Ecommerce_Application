@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class VerifyCodeController extends GetxController{
@@ -7,6 +6,13 @@ abstract class VerifyCodeController extends GetxController{
 }
 class VerifyCodeControllerImp extends VerifyCodeController{
 
+  String? email;
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    email = Get.arguments["email"];
+    super.onInit();
+  }
 
   @override
   void checkCode() {
@@ -16,7 +22,9 @@ class VerifyCodeControllerImp extends VerifyCodeController{
   @override
   void gotoResetPass() {
     // TODO: implement gotoSignUp
-    Get.offNamed('/resetpass');
+    Get.offNamed('/resetpass', arguments: {
+      "email" : email,
+    });
   }
 
 }

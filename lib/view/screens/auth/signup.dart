@@ -28,7 +28,7 @@ class Signup extends StatelessWidget {
       ),
       body: GetBuilder<SignupControllerImp>(
         builder: (controller) {
-          return HandlingDataView(statusRequest: controller.statusRequest, widget: Container(
+          return HandlingDataReq(statusRequest: controller.statusRequest, widget: Container(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
             child: Form(
               key: controller.formKey,
