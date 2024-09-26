@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/data/datasource/auth/login_data.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,7 +31,10 @@ class LoginControllerImp extends LoginController{
     // TODO: implement onInit
     emailController = TextEditingController();
     passController = TextEditingController();
-
+    FirebaseMessaging.instance.getToken().then((value){
+      print(value);
+      String? token = value;
+    });
     super.onInit();
   }
 
