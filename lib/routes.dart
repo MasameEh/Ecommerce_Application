@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/view/screens/auth/forgotpassword/forgotpass.dart';
-import 'package:ecommerce_app/view/screens/auth/home.dart';
+import 'package:ecommerce_app/view/screens/home.dart';
 import 'package:ecommerce_app/view/screens/auth/login.dart';
 import 'package:ecommerce_app/view/screens/auth/forgotpassword/resetpass.dart';
 import 'package:ecommerce_app/view/screens/auth/signup.dart';

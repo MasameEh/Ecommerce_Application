@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/static/static.dart';
-import 'package:ecommerce_app/view/screens/auth/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +18,7 @@ class OnBoardingControllerImpl extends OnBoardingController{
   next(){
     currPage++;
     if(currPage > onBoardingList.length - 1){
-      myServices.sharedPref.setBool('onboarding', true);
+      myServices.sharedPref.setString('step', "1");
 
       Get.offAllNamed('/login');
     }else{

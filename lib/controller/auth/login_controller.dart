@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/auth/login_data.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,8 @@ class LoginControllerImp extends LoginController{
   bool isChecked = false;
   bool isError = false;
   IconData suffix = Icons.visibility_off_outlined;
+
+  MyServices services = Get.find();
 
   @override
   void onInit() {
@@ -60,6 +63,11 @@ class LoginControllerImp extends LoginController{
       if(statusRequest == StatusRequest.success){
         if(response["status"] == "success"){
           //data.addAll(response['data']);
+          services.sharedPref.setString("email",    response["data"]["users_email"]);
+          services.sharedPref.setString("username", response["data"]["users_name"]);
+          services.sharedPref.setString("id",       response["data"]["users_id"].toString());
+          services.sharedPref.setString("phone",    response["data"]["users_phone"]);
+          services.sharedPref.setString("step",     "2");
           gotoHomePage();
         }
         else{
